@@ -174,7 +174,7 @@ function showProfile(record) {
   }
   profileContent.replaceChildren(logo(record), badge(record), heading,
     element("p", record.description, "description"), details,
-    element("h3", "Sources"), sources, link("Visit website ↗", record.website),
+    element("h3", "Sources"), sources, link(record.website.startsWith("https://ratings.food.gov.uk/") ? "View business record ↗" : "Visit website ↗", record.website),
     element("p", "Checked " + new Date(record.checked + "T00:00:00Z").toLocaleDateString(
       "en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"}
     ), "checked"));
@@ -194,7 +194,7 @@ function showProfile(record) {
 function render() {
   const filtered = records.filter(matches);
   count.textContent = filtered.length + (filtered.length === 1 ? " business" : " businesses");
-  clear.hidden = !search.value && !region.value && !sector.value && scope.value === "directory";
+  clear.hidden = !search.value && !region.value && !sector.value && scope.value === "all";
   if (!filtered.length) {
     output.replaceChildren(element("p", "No businesses match these filters. Try another location, sector or listing scope.", "empty"));
     return;
