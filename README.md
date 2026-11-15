@@ -14,3 +14,5 @@ Open [the local preview](http://127.0.0.1:4173/). The build creates the SQLite d
 Edit `data/businesses.json` to add your listings. Each record contains its trading location, founders, ownership evidence, and source links. To add a logo you have permission to use, save it as `site/logos/<record-id>.png` and rebuild. Record the image source in `logoSource`.
 
 See [the hero prompt and AI SDK review workflow](HERO-IMAGE.md) and the [MIT licence](LICENSE).
+
+An optional `coverUrl` can point to a business's homepage image or hero video poster. Set `coverSource` to the page where that image appears. Cards and profiles use a text layout if the image is unavailable.

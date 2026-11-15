@@ -20,7 +20,8 @@ CREATE TABLE businesses (
     kind TEXT NOT NULL, status TEXT NOT NULL, description TEXT NOT NULL,
     founders TEXT NOT NULL CHECK (json_valid(founders)),
     owner TEXT NOT NULL, operations TEXT NOT NULL, website TEXT NOT NULL,
-    logo TEXT, logoSource TEXT, checked TEXT NOT NULL
+    logo TEXT, logoSource TEXT, checked TEXT NOT NULL,
+    coverUrl TEXT, coverSource TEXT
 );
 CREATE TABLE sources (
     business_id TEXT NOT NULL REFERENCES businesses(id),
@@ -32,7 +33,7 @@ CREATE INDEX businesses_region ON businesses(region);
 FIELDS = (
     "id", "name", "city", "area", "region", "sector", "kind", "status",
     "description", "founders", "owner", "operations", "website", "logo",
-    "logoSource", "checked"
+    "logoSource", "checked", "coverUrl", "coverSource"
 )
 
 
@@ -50,7 +51,7 @@ def build():
                 columns = ", ".join(FIELDS)
                 placeholders = ", ".join("?" for _ in FIELDS)
                 db.execute(f"INSERT INTO businesses ({columns}) VALUES ({placeholders})",
-                           [record[key] for key in FIELDS])
+                           [record.get(key) for key in FIELDS])
                 db.executemany("INSERT INTO sources VALUES (?, ?, ?, ?)", [
                     (business["id"], position, source["label"], source["url"])
                     for position, source in enumerate(business["sources"])

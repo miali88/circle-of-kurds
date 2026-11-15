@@ -99,10 +99,31 @@ function profileButton(record, label) {
   return button;
 }
 
+function cover(record, className) {
+  const image = element("img", undefined, className);
+  image.alt = "";
+  image.loading = "lazy";
+  image.decoding = "async";
+  image.referrerPolicy = "no-referrer";
+  image.src = record.coverUrl;
+  return image;
+}
+
 function card(record) {
   const article = element("article", undefined, "card");
   const header = element("div", undefined, "card-top");
-  header.append(logo(record), badge(record));
+  const labels = element("div", undefined, "card-labels");
+  labels.append(logo(record), badge(record));
+  if (record.coverUrl) {
+    header.classList.add("with-cover");
+    const image = cover(record, "card-cover");
+    image.addEventListener("error", () => {
+      image.remove();
+      header.classList.remove("with-cover");
+    });
+    header.append(image);
+  }
+  header.append(labels);
   const list = element("dl");
   list.append(detail("Location", formatLocation(record)), detail("Founders", founders(record)));
   article.append(header, element("h3", record.name),
@@ -157,6 +178,16 @@ function showProfile(record) {
     element("p", "Checked " + new Date(record.checked + "T00:00:00Z").toLocaleDateString(
       "en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"}
     ), "checked"));
+  if (record.coverUrl) {
+    const image = cover(record, "profile-cover");
+    image.addEventListener("error", () => image.remove());
+    profileContent.prepend(image);
+    if (record.coverSource) {
+      const credit = element("li");
+      credit.append(link("Cover image source", record.coverSource));
+      sources.append(credit);
+    }
+  }
   profile.showModal();
 }
 

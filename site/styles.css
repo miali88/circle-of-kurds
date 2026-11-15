@@ -55,7 +55,14 @@ h2 { font: 400 clamp(45px,5vw,64px)/1 var(--display); letter-spacing: -.026em; m
 .cards { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 15px; }
 .card { min-width: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 9px; padding: 20px; display: flex; flex-direction: column; transition: border-color .2s, transform .2s; }
 .card:hover { border-color: #85a58b; transform: translateY(-2px); }
-.card-top { display: flex; justify-content: space-between; align-items: start; gap: 8px; margin-bottom: 14px; }
+.card-top { margin-bottom: 14px; }
+.card-labels { display: flex; justify-content: space-between; align-items: end; gap: 8px; }
+.card-top.with-cover { position: relative; display: flex; flex-direction: column; justify-content: end; min-height: 165px; margin: -20px -20px 17px; padding: 12px; overflow: hidden; isolation: isolate; border-radius: 8px 8px 0 0; background: #395346; }
+.card-cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.card-top.with-cover::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, #13292189); pointer-events: none; z-index: -1; }
+.with-cover .logo { box-shadow: 0 2px 8px #13292136; }
+.with-cover .status { box-shadow: 0 1px 5px #13292136; }
+.profile-cover { display: block; width: calc(100% + 56px); height: clamp(145px, 36vw, 215px); object-fit: cover; margin: -28px -28px 19px; background: #395346; }
 .logo { display: grid; place-items: center; width: 57px; height: 57px; background: #edf1df; color: #2d5039; border: 1px solid #dce2cd; border-radius: 10px; font: 400 28px/1 var(--display); overflow: hidden; flex: none; }
 .logo img { object-fit: contain; width: 88%; height: 88%; }
 .logo img[hidden] { display: none; }
@@ -90,7 +97,7 @@ dialog { padding: 0; border: 1px solid var(--line); border-radius: 12px; color: 
 dialog::backdrop { background: #0c2a22af; }
 .dialog-inner { position: relative; padding: 28px; }
 .dialog-inner .logo { margin-bottom: 12px; }
-.close { position: absolute; top: 13px; right: 13px; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; background: var(--paper); font-size: 24px; }
+.close { position: absolute; z-index: 1; top: 13px; right: 13px; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; background: var(--paper); font-size: 24px; }
 dialog h2 { margin: 10px 0; font-size: 50px; }
 dialog .description { margin-bottom: 15px; color: var(--muted); }
 dialog dl { margin: 15px 0; display: grid; gap: 10px; }
