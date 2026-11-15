@@ -38,7 +38,7 @@ FIELDS = (
 
 def build():
     businesses = json.loads((DATA / "businesses.json").read_text())
-    database = DATA / "circle-of-cards.sqlite"
+    database = DATA / "circle-of-kurds.sqlite"
     with TemporaryDirectory(dir=DATA) as folder:
         partial = Path(folder) / database.name
         with sqlite3.connect(partial) as db:
