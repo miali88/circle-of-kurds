@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Kurdish-founded businesses, social ventures and startup leads in London and across the UK.">
+  <title>Circle of Cards | UK Business Directory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#" aria-label="Circle of Cards home"><span class="brand-icon" aria-hidden="true"><i></i><i></i><i></i></span>Circle of Cards</a>
+      <nav aria-label="Main navigation"><a class="nav-directory" href="#directory">Directory</a><a href="#method">How we verify</a></nav>
+      <a class="export" href="directory.csv" download>Download CSV <span aria-hidden="true">↓</span></a>
+    </div>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="headline">
+      <img class="hero-image" src="images/hero-storefront.webp" width="1983" height="793" alt="" fetchpriority="high">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow hero-label"><span></span> LONDON &amp; THE UNITED KINGDOM</div>
+          <h1 id="headline">The Kurdish<br><em>business directory.</em></h1>
+          <p>Discover founders, independent businesses and emerging ventures, from London to the rest of the UK.</p>
+          <a class="cta" href="#directory">Explore the directory <span aria-hidden="true">↘</span></a>
+        </div>
+      </div>
+    </section>
+    <section class="wrap directory" id="directory" aria-labelledby="directory-title">
+      <div class="section-top">
+        <div><p class="eyebrow section-label">THE DIRECTORY</p><h2 id="directory-title">Explore businesses</h2></div>
+        <div class="views" role="group" aria-label="Directory view">
+          <button type="button" data-view="cards" aria-pressed="true"><span aria-hidden="true">▦</span> Cards</button>
+          <button type="button" data-view="table" aria-pressed="false"><span aria-hidden="true">☷</span> Table</button>
+        </div>
+      </div>
+      <form id="filters" class="filters" role="search" aria-label="Filter businesses">
+        <label class="searchbox"><span aria-hidden="true">⌕</span><span class="sr-only">Search businesses</span><input id="search" type="search" placeholder="Search businesses, founders or cities"></label>
+        <label class="select"><span class="sr-only">Location</span><select id="region"><option value="">All locations</option><option>London</option><option value="England">England outside London</option><option>Scotland</option><option>Wales</option><option>Northern Ireland</option><option value="Unverified">Base unverified</option></select></label>
+        <label class="select"><span class="sr-only">Sector</span><select id="sector"><option value="">All sectors</option></select></label>
+        <label class="select"><span class="sr-only">Listing scope</span><select id="scope"><option value="directory">Directory listings</option><option value="all">Listings and research leads</option><option value="leads">Research leads only</option></select></label>
+      </form>
+      <div class="results-bar"><p id="count" aria-live="polite"></p><button type="button" id="clear">Reset filters</button></div>
+      <div id="results"></div>
+      <noscript><p>Enable JavaScript to browse the directory, or use the CSV download.</p></noscript>
+    </section>
+    <section id="method" class="method">
+      <div class="wrap method-inner">
+        <div><p class="eyebrow">RESEARCH NOTES</p><h2>How we verify</h2></div>
+        <div><p>Each profile links to evidence for its founders, ownership and operating location. A registered office is recorded as such. Listings can include independent businesses and social enterprises. Choose <strong>Listings and research leads</strong> to see candidates still being checked.</p><p class="checked">Demo · fictional listings</p></div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap footer"><a class="brand" href="#">Circle of Cards</a><span>London &amp; the United Kingdom</span><a href="#directory">Back to directory ↑</a></footer>
+  <dialog id="profile" aria-labelledby="profile-title"><div class="dialog-inner"><button id="close-profile" class="close" type="button" aria-label="Close profile">×</button><div id="profile-content"></div></div></dialog>
+  <script src="directory-data.js" defer></script>
+  <script src="directory.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "example-design-studio",
+    "name": "Example Design Studio",
+    "city": "London",
+    "area": "Central London",
+    "region": "London",
+    "sector": "Fashion & design",
+    "kind": "Independent business",
+    "status": "Founder documented",
+    "description": "Fictional design studio used to demonstrate a directory profile.",
+    "founders": [
+      "Example founder"
+    ],
+    "owner": "Sample ownership note.",
+    "operations": "Sample operating location.",
+    "website": "https://example.com/",
+    "logoSource": null,
+    "checked": "2026-11-15",
+    "sources": [
+      {
+        "label": "Example source",
+        "url": "https://example.com/"
+      }
+    ]
+  },
+  {
+    "id": "example-food-market",
+    "name": "Example Food Market",
+    "city": "Cardiff",
+    "area": "Cardiff",
+    "region": "Wales",
+    "sector": "Food & drink",
+    "kind": "Independent business",
+    "status": "Research lead",
+    "description": "Fictional local market used to demonstrate a research lead.",
+    "founders": [],
+    "owner": "Sample ownership note pending evidence.",
+    "operations": "Sample operating location.",
+    "website": "https://example.com/",
+    "logoSource": null,
+    "checked": "2026-11-15",
+    "sources": [
+      {
+        "label": "Example source",
+        "url": "https://example.com/"
+      }
+    ]
+  }
+]

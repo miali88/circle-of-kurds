@@ -1,0 +1,8 @@
+/dist/
+/data/*.sqlite
+/data/*.csv
+/node_modules/
+node_modules/
+.env
+.env.*
+.DS_Store
